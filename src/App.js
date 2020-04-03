@@ -8,7 +8,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
-export default class App extends Component {
+//import {connect} from 'react-redux';
+class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -16,9 +17,6 @@ export default class App extends Component {
     }
   }
 
-  changeAuthorName = (name) => {
-    this.setState({name})
-  }
   render() {
     const {name} = this.state;
     return (
@@ -38,10 +36,10 @@ export default class App extends Component {
           </ul>
           <Switch>
             <Route exact path="/">
-              <Home handleNameChange = {this.changeAuthorName} authorName ={name} />
+              <Home />
             </Route>
             <Route path="/about">
-               <About authorName ={name} />
+               <About/>
             </Route>
             <Route path="/contact">
               <Contact />
@@ -52,3 +50,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;
